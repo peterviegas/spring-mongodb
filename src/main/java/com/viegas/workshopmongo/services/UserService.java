@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.viegas.workshopmongo.domain.User;
 import com.viegas.workshopmongo.dto.UserDTO;
 import com.viegas.workshopmongo.repository.UserRepository;
+import com.viegas.workshopmongo.services.exception.ObjectNotFoundException;
 
 
 @Service
@@ -19,9 +20,16 @@ public class UserService {
 		this.repo = repo;
 	}
 	
-	public List<UserDTO> findAll(){
-		
+	public List<UserDTO> findAll() {
 		List<User> users = repo.findAll();
 		return users.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+	}
+	
+	public UserDTO findById(String id) {
+		User user = repo.findById(id)
+				.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+		
+		return new UserDTO(user);
+		
 	}
 }
