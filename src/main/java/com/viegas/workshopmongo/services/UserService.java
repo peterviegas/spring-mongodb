@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.viegas.workshopmongo.domain.User;
 import com.viegas.workshopmongo.dto.UserDTO;
+import com.viegas.workshopmongo.mapper.UserMapper;
 import com.viegas.workshopmongo.repository.UserRepository;
 import com.viegas.workshopmongo.services.exception.ObjectNotFoundException;
 
@@ -30,6 +31,12 @@ public class UserService {
 				.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 		
 		return new UserDTO(user);
+	}
+	
+	public UserDTO create(UserDTO dto) {
 		
+		User user = repo.insert(UserMapper.toEntity(dto));
+		
+		return new UserDTO(user);
 	}
 }
