@@ -1,16 +1,37 @@
-### 📘 MongoDB Project with Spring Boot
-🚀 Overview
+## 🚀 Overview
 
-This project demonstrates how to build a RESTful API using Spring Boot integrated with MongoDB, focusing on document-oriented data modeling and best practices.
+This project was developed to demonstrate practical experience with MongoDB and Spring Boot in a real-world backend scenario.
 
-<img width="1236" height="556" alt="image" src="https://github.com/user-attachments/assets/d161aa23-7870-4968-86ed-b2c744b18498" />
-
+The application follows a layered architecture:
 - Client Application
 - REST Controllers
 - Service Layer
 - Repository Layer (MongoRepository)
 - Domain Layer
   
+
+<img width="1236" height="556" alt="image" src="https://github.com/user-attachments/assets/d161aa23-7870-4968-86ed-b2c744b18498" />
+  
+---
+
+## 💡 Key Highlights
+
+- Designed a REST API using MongoDB with Spring Boot
+- Applied document-oriented modeling (embedding vs referencing)
+- Implemented unit testing with Mockito and MockMvc
+- Designed a clean layered architecture
+  
+---
+
+### 🧠 Data Modeling Approach
+
+The application uses MongoDB document modeling strategies:
+
+- Embedded documents for closely related data
+- References for loosely coupled relationships
+
+The design decisions were driven by access patterns to optimize read performance.
+
 ---
 
 ### 🎯 Main Objectives
@@ -21,7 +42,7 @@ This project demonstrates how to build a RESTful API using Spring Boot integrate
 - Implement relationships:
   - Embedded documents
   - References
-  - Perform queries using Spring Data MongoDB
+- Perform queries using Spring Data MongoDB
 
 ---
 
@@ -50,12 +71,12 @@ This project demonstrates how to build a RESTful API using Spring Boot integrate
 ```
 ---
 
-# ⚙️ Technologies Used
-Java 17+
-Spring Boot 3.2.5 (started 4.0 but returned 3.2.5 because the TDD)
-Spring Data MongoDB
-MongoDB
-Maven
+### ⚙️ Technologies Used
+- Java 17+
+- Spring Boot 3.2.5
+- Spring Data MongoDB
+- MongoDB
+- Maven
 
 ---
 
@@ -112,17 +133,17 @@ src/
 ### 🧩 Layer Responsibilities
 
 - Controller (resources)
-  - Handles HTTP requests and responses.
+  - Handles HTTP requests and responses, exposing REST endpoints.
 - Service
-  - Contains business logic and validations.
+  - Contains business logic, validation, and orchestration.
 - Repository
-  - Responsible for data access using MongoRepository.
+  - Responsible for data access using MongoRepository abstraction.
 - Domain
-  - Represents MongoDB documents.
+  - Represents MongoDB documents and core business entities.
 - DTO
-  - Used to transfer data between layers.
+  - Used to transfer data between layers and avoid exposing domain entities.
 - Exception Handling
-  - Centralized error handling for REST APIs.
+  - Provides centralized error handling for REST APIs.
 
 ---
 
@@ -140,7 +161,7 @@ src/
 
 This project includes unit and integration tests covering the main layers of the application.
 
-🎯 Testing Strategy
+### 🎯 Testing Strategy
 
 The tests are divided into:
 
@@ -150,7 +171,7 @@ The tests are divided into:
 
 ---
 
-🧰 Main Testing Libraries
+### 🧰 Main Testing Libraries
 
 ✅ JUnit 5
 - Core testing framework used for writing and running tests.
@@ -198,7 +219,13 @@ Examples:
 
 ---
 
-⚡ Difference: Controller vs Service Tests
+### 💡 Testing Strategy Summary
+
+The project uses isolated unit tests to ensure fast execution and clear separation of concerns, avoiding dependency on external systems like databases.
+
+---
+
+### ⚡ Difference: Controller vs Service Tests
 
 ```
 | Layer      | Tool        | Purpose             |
@@ -226,7 +253,23 @@ The controller tests use:
 
 ---
 
+### 🚀 Future Improvements
+
+- Add integration tests using TestContainers with MongoDB
+- Implement pagination and filtering
+- Add CI/CD pipeline (GitHub Actions)
+- Improve test coverage with JaCoCo
+
+---
+
+### 💡 Final Thoughts
+
+This project reinforces key backend concepts such as clean architecture, document-based data modeling, and test isolation, which are essential for building scalable and maintainable applications.
+
+---
+
 👨‍💻 Author
 
 Peter Viegas
 Full-stack Developer | Java & Spring Boot | Angular | React Native
+
