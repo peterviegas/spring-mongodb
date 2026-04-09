@@ -114,7 +114,8 @@ src/
 │   │       ├── ObjectNotFoundException.java
 │   │       ├── ResourceExceptionHandler.java
 │   │       └── StandardError.java
-│
+│   │   ── mapper/             
+│   │       └── UserMapper.java
 │   └── resources/
 │
 ├── test/
