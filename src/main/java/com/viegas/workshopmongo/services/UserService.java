@@ -40,11 +40,14 @@ public class UserService {
 		return new UserDTO(user);
 	}
 	
-	public UserDTO update(UserDTO dto) {
+	public UserDTO update(String id, UserDTO dto) {
+		
+		User newOby = repo.findById(id)
+				.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+		
+		newOby = UserMapper.toEntity(dto);
 
-		User user = repo.insert(UserMapper.toEntity(dto));
-
-		return new UserDTO(user);
+		return new UserDTO(newOby);
 	}
 	
 	public void delete(String id) {
