@@ -39,4 +39,19 @@ public class UserService {
 		
 		return new UserDTO(user);
 	}
+	
+	public UserDTO update(UserDTO dto) {
+
+		User user = repo.insert(UserMapper.toEntity(dto));
+
+		return new UserDTO(user);
+	}
+	
+	public void delete(String id) {
+		User user = repo.findById(id)
+				.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+		
+		repo.deleteById(id);
+	}
+	
 }
