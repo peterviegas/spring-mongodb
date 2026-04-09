@@ -19,7 +19,7 @@ public class StandardError implements Serializable{
 		this.timestamp = timestamp;
 		this.status = status;
 		this.error = error;
-		//private String message;
+		this.message = message;
 		this.path = path;
 	}
 
@@ -53,6 +53,14 @@ public class StandardError implements Serializable{
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	
 	
