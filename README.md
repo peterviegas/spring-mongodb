@@ -96,18 +96,25 @@ src/
 │   │   │   └── MongoConfig.java
 │   │
 │   │   ├── domain/
+│   │   │   └── Post.java
 │   │   │   └── User.java
 │   │
 │   │   ├── dto/
+│   │   │   └── AuthorDTO.java
+│   │   │   └── CommentDTO.java
+│   │   │   └── PostDTO.java
 │   │   │   └── UserDTO.java
 │   │
 │   │   ├── repository/
+│   │   │   └── PostRepository.java
 │   │   │   └── UserRepository.java
 │   │
 │   │   ├── resources/
+│   │   │   └── PostResource.java
 │   │   │   └── UserResource.java
 │   │
 │   │   ├── services/
+│   │   │   └── PostService.java
 │   │   │   └── UserService.java
 │   │
 │   │   └── services/exception/
@@ -115,7 +122,10 @@ src/
 │   │       ├── ResourceExceptionHandler.java
 │   │       └── StandardError.java
 │   │   ── mapper/             
+│   │       └── PostMapper.java
 │   │       └── UserMapper.java
+│   │   ── util/             
+│   │       └── URLr.java
 │   └── resources/
 │
 ├── test/
