@@ -41,5 +41,17 @@ public class PostResource {
 		
 		return ResponseEntity.ok().body(list);
 	}
+	
+	@GetMapping("/titlesearchquery")
+	public ResponseEntity<List<PostDTO>> titleSearch(
+			@RequestParam(value="text", defaultValue ="") String text
+			){
+		
+		text = URL.decodeParam(text);
+		
+		List<PostDTO> list = postService.titleSearc(text);
+		
+		return ResponseEntity.ok().body(list);
+	}
 
 }

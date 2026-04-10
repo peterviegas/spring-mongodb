@@ -36,4 +36,11 @@ public class PostService {
 				.map(PostMapper::toDTO)
 				.toList();
 	}
+	
+	public List<PostDTO> titleSearc(String text){
+		List<Post> posts = repo.findByTitle(text);
+		return posts.stream()
+				.map(PostMapper::toDTO)
+				.toList();
+	}
 }
