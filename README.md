@@ -121,11 +121,12 @@ src/
 │   │       ├── ObjectNotFoundException.java
 │   │       ├── ResourceExceptionHandler.java
 │   │       └── StandardError.java
-│   │   ── mapper/             
-│   │       └── PostMapper.java
-│   │       └── UserMapper.java
-│   │   ── util/             
-│   │       └── URLr.java
+│   │   ├── mapper/
+│   │   │   └── PostMapper.java
+│   │   │   └── UserMapper.java
+│   │   │
+│   │   ├── util/
+│   │   │   └── URL.java
 │   └── resources/
 │
 ├── test/
@@ -228,6 +229,98 @@ Examples:
 - Check field values
 - Validate response structure
 
+---
+
+🔹 Example of endpoint
+GET /users/69d975516659bb6b016e22c1
+
+🔹 Example of return
+
+```
+{
+    "id": "69d975516659bb6b016e22c1",
+    "name": "Maria Brown",
+    "email": "maria@gmail.com",
+    "post": [
+        {
+            "id": "69d975516659bb6b016e22c4",
+            "date": "2026-04-10",
+            "title": "go travel",
+            "body": "I am going to France, bye!",
+            "author": {
+                "id": "69d975516659bb6b016e22c1",
+                "name": "Maria Brown"
+            },
+            "comments": [
+                {
+                    "text": "Good travel!",
+                    "date": "2026-04-10",
+                    "author": {
+                        "id": "69d975516659bb6b016e22c2",
+                        "name": "Alex Green"
+                    }
+                },
+                {
+                    "text": "Take care!",
+                    "date": "2026-04-10",
+                    "author": {
+                        "id": "69d975516659bb6b016e22c3",
+                        "name": "Bob Grey"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "69d975516659bb6b016e22c5",
+            "date": "2026-04-10",
+            "title": "Good morning",
+            "body": "I woke up happy!",
+            "author": {
+                "id": "69d975516659bb6b016e22c1",
+                "name": "Maria Brown"
+            },
+            "comments": [
+                {
+                    "text": "Have a nice day!",
+                    "date": "2026-04-10",
+                    "author": {
+                        "id": "69d975516659bb6b016e22c2",
+                        "name": "Alex Green"
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+🔹 Example of endpoint
+GET /posts/fullsearch?text=Good%20morning&minDate=01/04/2026&maxDate=10/04/2026
+
+🔹 Example of return
+```
+[
+    {
+        "id": "69d975516659bb6b016e22c5",        
+        "date": "2026-04-10",        
+        "title": "Good morning",        
+        "body": "I woke up happy!",        
+        "author": {        
+            "id": "69d975516659bb6b016e22c1",            
+            "name": "Maria Brown"        },
+        "comments": [
+            {
+                "text": "Have a nice day!",                
+                "date": "2026-04-10",                
+                "author": {                
+                    "id": "69d975516659bb6b016e22c2",                    
+                    "name": "Alex Green"
+                }
+            }
+        ]
+    }
+]
+```
 ---
 
 ### 💡 Testing Strategy Summary
