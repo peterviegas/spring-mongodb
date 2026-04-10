@@ -16,7 +16,7 @@ public class PostMapper {
 				
 	}
 	
-	public static Post toDTO (PostDTO dto) {
+	public static Post toEntity (PostDTO dto) {
 		return new Post (
 				dto.getId(),
 				dto.getDate(),

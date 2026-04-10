@@ -1,6 +1,9 @@
 package com.viegas.workshopmongo.services;
 
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.viegas.workshopmongo.domain.Post;
@@ -27,5 +30,10 @@ public class PostService {
 		return PostMapper.toDTO(post);
 	}
 	
-	
+	public List<PostDTO> findByTitle(String text){
+		List<Post> posts = repo.findByTitleContainingIgnoreCase(text);
+		return posts.stream()
+				.map(PostMapper::toDTO)
+				.toList();
+	}
 }
