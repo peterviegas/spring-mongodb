@@ -1,6 +1,7 @@
 package com.viegas.workshopmongo.services;
 
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,5 +43,16 @@ public class PostService {
 		return posts.stream()
 				.map(PostMapper::toDTO)
 				.toList();
+	}
+	
+	public List<PostDTO> fullSearch(String text, LocalDate minDate, LocalDate maxDate) {
+		
+		maxDate = maxDate.plusDays(1);
+		
+		List<Post> posts = repo.fullSearch(text, minDate, maxDate);
+	    
+	    return posts.stream()
+	            .map(PostMapper::toDTO)
+	            .toList();
 	}
 }
