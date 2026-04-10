@@ -9,7 +9,8 @@ public class UserMapper {
 		return new UserDTO (
 				user.getId(),
 				user.getName(),
-				user.getEmail()
+				user.getEmail(),
+				user.getPost()
 			);
 	}
 	

@@ -36,7 +36,7 @@ public class MeuControllerTest {
     void deveRetornarUsuarioPorId() throws Exception {
 
         // Arrange
-        UserDTO dto = new UserDTO("123", "Peter", "peter@mail.com");
+        UserDTO dto = new UserDTO("123", "Peter", "peter@mail.com", null);
         Mockito.when(service.findById("123")).thenReturn(dto);
 
         // Act + Assert

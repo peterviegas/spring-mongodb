@@ -1,7 +1,12 @@
 package com.viegas.workshopmongo.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
+import com.viegas.workshopmongo.domain.Post;
 import com.viegas.workshopmongo.domain.User;
 
 public class UserDTO implements Serializable{
@@ -12,25 +17,26 @@ public class UserDTO implements Serializable{
 	private String name;
 	private String email;
 	
+	private List<Post> post = new ArrayList<>(); 
+	
 	public UserDTO() {
 	}
 	
-	
-	
-	public UserDTO(String id, String name,String email) {
+	public UserDTO(String id, String name,String email, List<Post> post) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		this.post = post;
 	}
 
 
 
-	public UserDTO(User obj) {
+	/*public UserDTO(User obj) {
 		id = obj.getId();
 		name = obj.getName();
 		email = obj.getEmail();
-	}
+	}*/
 
 	public String getId() {
 		return id;
@@ -54,6 +60,18 @@ public class UserDTO implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+
+	public List<Post> getPost() {
+		return post;
+	}
+
+
+
+	public void setPost(List<Post> post) {
+		this.post = post;
 	}
 	
 	

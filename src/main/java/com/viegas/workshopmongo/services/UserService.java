@@ -23,21 +23,22 @@ public class UserService {
 	
 	public List<UserDTO> findAll() {
 		List<User> users = repo.findAll();
-		return users.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+		//return users.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+		return users.stream().map(x -> UserMapper.toDTO(x)).collect(Collectors.toList());
 	}
 	
 	public UserDTO findById(String id) {
 		User user = repo.findById(id)
 				.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 		
-		return new UserDTO(user);
+		return UserMapper.toDTO(user);
 	}
 	
 	public UserDTO create(UserDTO dto) {
 		
 		User user = repo.insert(UserMapper.toEntity(dto));
 		
-		return new UserDTO(user);
+		return UserMapper.toDTO(user);
 	}
 	
 	public UserDTO update(String id, UserDTO dto) {
@@ -47,7 +48,7 @@ public class UserService {
 		
 		newOby = UserMapper.toEntity(dto);
 
-		return new UserDTO(newOby);
+		return UserMapper.toDTO(newOby);
 	}
 	
 	public void delete(String id) {
